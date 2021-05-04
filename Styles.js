@@ -13,6 +13,8 @@ const urlWeight = {
 }
 const urlGroup = {uri: 'https://i.dlpng.com/static/png/6589024_preview.png'};
 const urlHeight = {uri: 'https://image.flaticon.com/icons/png/512/1050/1050209.png'}
+
+
 const DividerVertical = styled(View)`
     width: 0.8px;
     height: 100%;
@@ -53,10 +55,10 @@ const CustomItem = (props) => (
         <Avatar source={{uri:props.image||'https://e7.pngegg.com/pngimages/685/647/png-clipart-pikachu-poke-ball-pokemon-pikachu-pokemon-area.png'}} />
         <DividerVertical />
        <CustomView  bgColor='#eee' column align='flex-start'  >
-        <CustomText color='black' size='17px'><Pokeball source={urlPokeball} />   Nome: {props.data.name||'???'}</CustomText>
-        <CustomText color='black' size='17px'><Pokeball source={urlGroup} />   Especie: {props.data.group||'???'}</CustomText>
-        <CustomText color='black' size='17px'><Pokeball source={urlHeight} />   Altura: {props.data.height||'???'}</CustomText>
-        <CustomText color='black' size='17px'><Pokeball source={urlWeight} />   Peso: {props.data.weight||'???'}</CustomText>
+        <CustomText color='black' size='17px'><Pokeball source={urlPokeball} />   Name: {props.data.name||'???'}</CustomText>
+        <CustomText color='black' size='17px'><Pokeball source={urlGroup} />   Type: {props.data.group||'???'}</CustomText>
+        <CustomText color='black' size='17px'><Pokeball source={urlHeight} />   Height: {props.data.height||'???'}</CustomText>
+        <CustomText color='black' size='17px'><Pokeball source={urlWeight} />   Weight: {props.data.weight||'???'}</CustomText>
        </CustomView>
     </CustomView>
 )

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect,useState} from 'react';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, FlatList } from 'react-native';
 import Pokedex from "./Pokedex";
 import { CustomScrollView,CustomView,CustomText,CustomItem } from "./Styles";
 import { useFonts, Poppins_400Regular,Poppins_500Medium,Poppins_200ExtraLight }  from '@expo-google-fonts/poppins'
@@ -12,6 +12,8 @@ export default function App() {
       let data = await Pokedex.getPokemons();
       if(data!='Error')setPokemons(data);
       else console.log('Error');
+
+     
     })()
   })
   if(Pokemons!=null && fontsLoaded){
@@ -19,40 +21,18 @@ export default function App() {
         <CustomView pb>
           <CustomScrollView>
             <CustomText size='40px' family='light' align='center'>Pokedex</CustomText>
-            <CustomItem data={{
+            <FlatList data={Pokemons} renderItem={({item})=>{
+                let bulbasar = Pokedex.getDetail(Pokemons[0].url).then(val=>{
+                });
+            }} />
+            {/* <CustomItem data={{
               name:'pikachu',
               group: 'eletrico',
               height: 7,
               weight: 20,
-            }} image='https://assets.pokemon.com/assets/cms2/img/pokedex/full/056.png' />
+            }} image='https://assets.pokemon.com/assets/cms2/img/pokedex/full/056.png' /> */}
+
             
-            <CustomItem data={{
-              name:'pikachu',
-              group: 'eletrico',
-              height: 7,
-              weight: 20,
-            }} image='https://assets.pokemon.com/assets/cms2/img/pokedex/full/056.png' />
-            
-            <CustomItem data={{
-              name:'pikachu',
-              group: 'eletrico',
-              height: 7,
-              weight: 20,
-            }} image='https://assets.pokemon.com/assets/cms2/img/pokedex/full/056.png' />
-            
-            <CustomItem data={{
-              name:'pikachu',
-              group: 'eletrico',
-              height: 7,
-              weight: 20,
-            }} image='https://assets.pokemon.com/assets/cms2/img/pokedex/full/056.png' />
-            
-            <CustomItem data={{
-              name:'pikachu',
-              group: 'eletrico',
-              height: 7,
-              weight: 20,
-            }} image='https://assets.pokemon.com/assets/cms2/img/pokedex/full/056.png' />
             
             </CustomScrollView>
           <StatusBar style='dark' translucent={false} />
