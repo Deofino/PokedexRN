@@ -5,7 +5,7 @@ class Pokedex {
     static getPokemons = async function(eggGroup='null'){
         try {
             let data = eggGroup=='null'?
-            await axios.get(`${urlPokedex}/pokemon?limit=1`):
+            await axios.get(`${urlPokedex}/pokemon?limit=40`):
             await axios.get(`${urlPokedex}/egg-group/${eggGroup}`);
             return data.data.results?data.data.results:data.data;
         } catch (error) {
@@ -22,7 +22,7 @@ class Pokedex {
                 type: details.data.types[0].type.name,
                 weight: details.data.weight,
                 height: details.data.height,
-                image: details.data.sprites.other.dream_world.front_default,
+                image: details.data.sprites.front_default,
             };
         } catch (error) {
             console.log(error);
